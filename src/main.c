@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:38:29 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/05/06 02:43:18 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/09 12:04:13 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	if(ac == 1)
-		return(0);
+	int	ac_count;
+	int	parse_stack;
+	int	
+	
 }

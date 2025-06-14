@@ -6,16 +6,16 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 04:11:21 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/05/20 00:14:43 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/09 11:44:19 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_atoi(const char *str)
+int ft_atoi(const char *str, int *overflow)
 {
 	int i;
-	int num;
+	long num;
 	int sign;
 	
 	i = 0;
@@ -33,8 +33,11 @@ int ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		num = num * 10 + (str[i] - '0');
+		if ((num > 2147483647 && sign == 1) || (num > 2147483648))
+			*overflow = 1;
 		i++;
 	}
+	
 	return(num * sign);
 }
 

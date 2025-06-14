@@ -1,55 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 06:27:22 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/14 19:27:08 by olopez-s         ###   ########.fr       */
+/*   Created: 2025/06/09 17:13:53 by olopez-s          #+#    #+#             */
+/*   Updated: 2025/06/12 04:47:17 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 
-// no int max or int min (in atoi)
-//no spaces , there has to be numbers 
-//at least one number 
-//no letters 
-// no tenga dos signos solo uno 
-// overflow
-//no same two numbers 
-//stack is ramdomized 
-
-
-
-static char **ft_split_args(char **av)
+int ft_content(char **av)
 {
 	int i;
-	char **split_args;
-	int j;
-	int k;
 	char **temp;
-
+	int t;
+	int c;
+	
 	i = 1;
-	split_args = malloc(sizeof(char *) * (ft_content(av) + 1));
-	if(!split_args)
-		return(0);
 	while(av[i])
 	{
-		temp = ft_split(av[i], ' ');
-		while(temp[k])
+		temp = ft_split_args(av[i], ' ');
+		while(temp[t])
 		{
-			split_args[j] = temp[k];
-			j++;
-			k++;
+			c++;
+			t++;
 		}
-		k = 0;
+		t = 0;
 		free(temp);
 		i++;
 	}
-	split_args[j] = NULL;
-	return(split_args);
+	return(t);
 }
 
 
