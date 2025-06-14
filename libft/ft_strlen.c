@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 02:36:02 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/05/07 02:39:00 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/14 20:20:03 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_strlen(char *str)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	return (i);
 }

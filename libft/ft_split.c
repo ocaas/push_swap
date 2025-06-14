@@ -6,11 +6,12 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 02:34:07 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/12 03:51:11 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/14 20:18:45 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static void	ft_free(char **matrix, int cont)
 {
 	int	i;

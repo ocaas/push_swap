@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:28:04 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/05/06 02:45:49 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/14 20:26:35 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,7 @@
 
 # define AC_ERROR 1
 
-# endif
+static char	**ft_split_args(char **av);
+int			ft_content(char **av);
+
+#endif
