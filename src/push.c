@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 06:28:04 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/15 05:07:38 by olopez-s         ###   ########.fr       */
+/*   Created: 2025/06/15 04:32:21 by olopez-s          #+#    #+#             */
+/*   Updated: 2025/06/15 05:16:12 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "../includes/pushswap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-
-# define AC_ERROR 1
-
-typedef struct s_stack
+static void	ft_push(t_stack **from, t_stack **to)
 {
-	int				*content;
-	struct s_stack	*next;
-} t_stack;
+	t_stack	*temp;
 
+	if (!from || !(*from))
+		return ;
+	temp = *from;
+	*from = (*from)->next;
+	temp->next = *to;
+	*to = temp;
+}
 
-
-//utils
-int	ft_content(char **av);
-
-#endif
+void	ra(stack **a, stack **b)
+{
+	
+}
