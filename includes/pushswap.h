@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:28:04 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/14 20:26:35 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/15 04:08:22 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,15 @@
 
 # define AC_ERROR 1
 
-static char	**ft_split_args(char **av);
-int			ft_content(char **av);
+typedef struct s_stack
+{
+	int				*content;
+	struct s_stack	*next;
+} t_stack;
+
+
+
+//utils
+int	ft_content(char **av);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:27:22 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/14 20:42:23 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/15 04:05:13 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_spaces(char **av)
 		return (1);
 	while(av)
 	{
-		if(av[i] == ' ' || (av[i] >= 9 av[i] <= 13))
+		if(av[i] == ' ' || (av[i] >= 9 && av[i] <= 13))
 			return (0);
 		else
 			return (1);
@@ -66,5 +66,6 @@ int	ft_spaces(char **av)
 //no letters 
 // no tenga dos signos solo uno 
 // overflow								tik
-//no same two numbers 
-//stack is ramdomized 
+//no same two numbers
+//stack is ramdomized
+// convert strings into ints
