@@ -6,13 +6,13 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 04:11:21 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/14 20:17:20 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/16 06:37:03 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str, int *overflow)
+int	ft_atoi(const char *str)
 {
 	int		i;
 	long	num;
@@ -34,7 +34,7 @@ int	ft_atoi(const char *str, int *overflow)
 	{
 		num = num * 10 + (str[i] - '0');
 		if ((num > 2147483647 && sign == 1) || (num > 2147483648))
-			*overflow = 1;
+			break;
 		i++;
 	}
 	return (num * sign);

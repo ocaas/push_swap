@@ -5,24 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/05/05 05:44:17 by olopez-s          #+#    #+#              #
-#    Updated: 2025/06/16 06:30:09 by olopez-s         ###   ########.fr        #
+#    Created: 2025/06/16 06:27:42 by olopez-s          #+#    #+#              #
+#    Updated: 2025/06/16 06:34:05 by olopez-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-NAME = pushswap
+NAME = libft.a
 
 SRC_DIR = src
 SRC = $(wildcard $(SRC_DIR)/*.c)
 
-CFLAGS = -Wall -Wextra -Werror -Iinclude -I./libft
+CFLAGS = -Wall -Wextra -Werror 
 
 OBJ_DIR = obj
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
+
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): $(OBJ)
 	@echo "Linking $(NAME)..."

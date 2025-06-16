@@ -6,11 +6,11 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 03:53:24 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/14 20:19:25 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/16 05:37:32 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

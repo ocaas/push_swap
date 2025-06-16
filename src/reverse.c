@@ -6,10 +6,10 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 04:55:15 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/15 04:56:07 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/16 05:32:28 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 
-static void	ft_reverse(t_stack **)
+//static void	ft_reverse(t_stack **)

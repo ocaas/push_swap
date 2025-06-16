@@ -6,11 +6,12 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 17:13:53 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/16 04:26:15 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/16 06:49:54 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
+#include "../libft/libft.h"
 
 int	ft_content(char **av)
 {
@@ -22,7 +23,7 @@ int	ft_content(char **av)
 	i = 1;
 	while (av[i])
 	{
-		*(temp) = ft_split_args(av[i], ' ');
+		temp = ft_split_args(av[i], ' ');
 		while (*temp[t])
 		{
 			c++;
@@ -71,7 +72,7 @@ void	print_stack(t_stack **stack)
 	temp = *stack;
 	while(temp)
 	{
-		printf("%d\n", temp);
+		printf("%p\n", temp);
 		temp = temp->next;
 	}
 }

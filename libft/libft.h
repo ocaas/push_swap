@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 02:51:05 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/15 06:55:56 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/16 06:37:26 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 char *ft_putstr_fd(char *str, int fd);
 int	ft_strlen(char *str);
 char	**ft_split(char const *s, char c);
+int	ft_atoi(const char *str);
+
 
 
 
