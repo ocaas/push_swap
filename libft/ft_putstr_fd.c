@@ -6,13 +6,13 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 01:06:06 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/15 01:09:12 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/15 06:12:15 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pushswap.h"
+#include "../libft/libft.h"
 
 char *ft_putstr_fd(char *str, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	write(fd, str, ft_strlen(str));
 }

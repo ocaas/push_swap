@@ -6,13 +6,13 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:27:22 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/15 04:05:13 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/16 04:07:46 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 
-static char	**ft_split_args(char **av)
+char	**ft_split_args(char **av)
 {
 	int		i;
 	char	**split_args;
@@ -45,7 +45,7 @@ int	ft_spaces(char **av)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	if(!av[i])
 		return (1);
 	while(av)
@@ -57,7 +57,6 @@ int	ft_spaces(char **av)
 		i++;
 	}
 }
-
 
 
 // no int max or int min (in atoi)		tik
