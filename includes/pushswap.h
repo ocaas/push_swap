@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:28:04 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/16 06:06:33 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/16 07:06:37 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	ft_add_node_end(t_stack **stack, t_stack *new);
 
 //parse
 t_stack	*ft_newstack(int data);
+char	**ft_split_args(char **av);
+
 
 //swap
 void sa(t_stack **a);
