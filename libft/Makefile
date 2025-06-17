@@ -6,46 +6,37 @@
 #    By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/16 06:27:42 by olopez-s          #+#    #+#              #
-#    Updated: 2025/06/17 04:39:02 by olopez-s         ###   ########.fr        #
+#    Updated: 2025/06/17 05:59:00 by olopez-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME     = libft.a
-CC       = cc
-AR       = ar
-CFLAGS   = -Wall -Wextra -Werror
-INCLUDES = -I.
+NAME = libft.a
+CC = cc
+AR = ar
+ARFLAGS = rcs
+CFLAGS = -Wall -Wextra -Werror
+INCLUDES= -I.
 
-SRC_DIR  = src
-OBJ_DIR  = obj
+# all .c files live directly in this folder
+SRCS    = $(wildcard *.c)
+OBJS    = $(SRCS:.c=.o)
 
-# all .c files under src/
-SRCS     = $(wildcard $(SRC_DIR)/*.c)
-# corresponding .o files go into obj/
-OBJS     = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
-
-# Default rule: build the archive
 all: $(NAME)
 
-# Archive rule: only runs if OBJS exist
+# create the archive from all .o files
 $(NAME): $(OBJS)
 	@echo "Linking $(NAME)..."
-	@$(AR) rcs $(NAME) $(OBJS)
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
-# Compile each .c → .o
-# The pipe '|' before $(OBJ_DIR) makes sure the directory exists first
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+# compile each .c → .o
+%.o: %.c
 	@echo "  CC $<"
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-# Ensure obj directory exists
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
-
 clean:
-	@echo "Cleaning objects in libft..."
-	@rm -rf $(OBJ_DIR)
+	@echo "Cleaning libft objects..."
+	@rm -f $(OBJS)
 
 fclean: clean
 	@echo "Removing $(NAME)..."
@@ -54,3 +45,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
