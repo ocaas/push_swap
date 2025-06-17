@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:28:04 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/16 07:06:37 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/17 04:43:33 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct s_stack
 {
-	int				*content;
+	int				content;
 	struct s_stack	*next;
 } t_stack;
 

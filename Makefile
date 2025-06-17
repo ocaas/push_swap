@@ -6,42 +6,40 @@
 #    By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/05 05:44:17 by olopez-s          #+#    #+#              #
-#    Updated: 2025/06/16 06:30:09 by olopez-s         ###   ########.fr        #
+#    Updated: 2025/06/17 04:49:03 by olopez-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
 
-NAME = pushswap
+NAME    = libft.a
+CC      = cc
+AR      = ar
+CFLAGS  = -Wall -Wextra -Werror
+INCLUDES= -I.
 
-SRC_DIR = src
-SRC = $(wildcard $(SRC_DIR)/*.c)
-
-CFLAGS = -Wall -Wextra -Werror -Iinclude -I./libft
-
-OBJ_DIR = obj
-OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+# All .c files live directly in libft/
+SRC     = $(wildcard *.c)
+OBJ     = $(SRC:.c=.o)
 
 all: $(NAME)
 
+# Archive the .o files into libft.a
 $(NAME): $(OBJ)
 	@echo "Linking $(NAME)..."
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	@$(AR) rcs $(NAME) $(OBJ)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	@echo "Compiling $<..."
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
+# Compile each .c → .o
+%.o: %.c
+	@echo "  CC $<"
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJ_DIR)
-	@echo "Object files removed."
+	@echo "Cleaning libft objects..."
+	@rm -f $(OBJ)
 
 fclean: clean
+	@echo "Removing libft archive..."
 	@rm -f $(NAME)
-	@echo "Executable removed."
 
 re: fclean all
 

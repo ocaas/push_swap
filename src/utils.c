@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 17:13:53 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/16 06:49:54 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/16 07:19:19 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_content(char **av)
 	i = 1;
 	while (av[i])
 	{
-		temp = ft_split_args(av[i], ' ');
+		temp = ft_split_args(&av[i]);
 		while (*temp[t])
 		{
 			c++;
