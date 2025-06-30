@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:38:29 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/30 15:36:57 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/30 16:10:35 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main(int ac, char **av)
 {
-	t_stack *a;
+	t_stack *a = NULL;
 	int num;
 	int i = 1;
 	

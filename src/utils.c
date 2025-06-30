@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 17:13:53 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/16 07:19:19 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/30 17:14:50 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	print_stack(t_stack **stack)
 	temp = *stack;
 	while(temp)
 	{
-		printf("%p\n", temp);
+		printf("%d\n", temp->content);
 		temp = temp->next;
 	}
 }
