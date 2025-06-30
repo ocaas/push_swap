@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:38:29 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/16 06:38:20 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:36:57 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,19 @@ int main(int ac, char **av)
 	int num;
 	int i = 1;
 	
-	if(ac)
-	{
-		while(av[i])
-		{
-			num = ft_atoi(av[i]);
-			ft_add_node_end(&a, ft_newstack(num));
-			i++;
-		}
-		
-		print_stack(&a);
-		ft_swap(&a);
-		print_stack(&a);
+	if (ac < 2)
 		return (0);
+	while(av[i])
+	{
+		num = ft_atoi(av[i]);
+		ft_add_node_end(&a, ft_newstack(num));
+		i++;
 	}
+	
+	print_stack(&a);
+	sa(&a);
+	print_stack(&a);
+	return (0);
 }
 
 /* int	main (int ac, char **av)

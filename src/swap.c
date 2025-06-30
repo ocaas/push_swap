@@ -6,14 +6,14 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 20:56:41 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/16 06:06:17 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:29:20 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 #include "../libft/libft.h"
 
-void	ft_swap(t_stack **stack)
+static void	ft_swap(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -27,19 +27,19 @@ void	ft_swap(t_stack **stack)
 	*stack = second;
 }
 
-void sa(t_stack **a)
+void	sa(t_stack **a)
 {
 	ft_swap(a);
 	ft_putstr_fd("sa\n", 1);
 }
 
-void sb(t_stack **b)
+void	sb(t_stack **b)
 {
 	ft_swap(b);
 	ft_putstr_fd("sb\n", 1);
 }
 
-void ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b)
 {
 	ft_swap(a);
 	ft_swap(b);
