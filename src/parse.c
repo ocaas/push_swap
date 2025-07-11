@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:27:22 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/16 06:08:31 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/07/11 21:35:24 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**ft_split_args(char **av)
 		temp = ft_split(av[i], ' ');
 		while (temp[k])
 		{
-			split_args[j] = temp[k];
+			split_args[j] = ft_strdup(temp[k]);
 			j++;
 			k++;
 		}

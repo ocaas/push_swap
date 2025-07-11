@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 01:06:06 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/17 05:47:13 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/07/06 20:38:54 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,14 @@
 
 void ft_putstr_fd(char *str, int fd)
 {
-	write(fd, &str, ft_strlen(str));
+	int	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
+	{
+		write(fd, &str[i], 1);
+		i++;
+	}
 }

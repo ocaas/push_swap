@@ -6,12 +6,14 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:38:29 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/01 12:03:34 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/07/11 21:44:01 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 #include "../libft/libft.h"
+
+//remember to fix libft.a 
 
 int main(int ac, char **av)
 {
@@ -33,14 +35,33 @@ int main(int ac, char **av)
 		}
 		ft_putnbr_fd(new->content, 1);
 		ft_putchar_fd('\n', 1);
+		//ft_putstr_fd(", ", 1);
 		ft_add_node_end(&a, new);
 		i++;
 	}
-	
-	print_stack(&a);
-	print_stack(&a);
 	return (0);
 }
+
+/* int main(int ac, char **av)
+{
+	int	i;
+	int	num;
+	char	**arg;
+	t_stack	*stack;
+	
+	if (ac < 2)
+		return (0);
+	arg = ft_split_args(av);
+	stack = NULL;
+	i = 0;
+	while(arg[i])
+	{
+		num = ft_atoi(arg[i]);
+		ft_add_node_end(&stack, ft_newstack(num));
+		i++;
+	}
+	print_stack(&stack);
+} */
 
 /* int	main (int ac, char **av)
 {
