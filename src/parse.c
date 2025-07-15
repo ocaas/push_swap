@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:27:22 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/11 21:35:24 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/07/15 19:51:22 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,42 @@ char	**ft_split_args(char **av)
 	int		k;
 	char	**temp;
 
+	k = 0;
 	i = 1;
-	split_args = malloc(sizeof(char *) * (ft_content(av) + 1));
-	if (!split_args)
-		return (0);
 	while (av[i])
 	{
-		temp = ft_split(av[i], ' ');
-		while (temp[k])
+		split_args = malloc(sizeof(char *) * (ft_content(av) + 1));
+		if (!split_args)
 		{
-			split_args[j] = ft_strdup(temp[k]);
+			ft_free(split_args);
+			return (NULL);
+		}
+		temp = ft_split(av[i], ' ');
+		j = 0;
+		while (temp[j])
+		{
+			split_args[k] = ft_strdup(temp[j]);
 			j++;
 			k++;
 		}
-		k = 0;
-		free (temp);
+		ft_free(temp);
 		i++;
 	}
-	split_args[j] = NULL;
+	split_args[k] = NULL;
 	return (split_args);
+}
+
+void	ft_free(char **a)
+{
+	int	i;
+
+	i = 0;
+	while(a[i])
+	{
+		free(a[i]);
+		i++;
+	}
+	free(a);
 }
 
 /*
