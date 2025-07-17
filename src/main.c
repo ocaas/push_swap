@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:38:29 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/11 21:44:01 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/07/17 15:41:29 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 //remember to fix libft.a 
 
-int main(int ac, char **av)
+/* int main(int ac, char **av)
 {
 	t_stack *a = NULL;
 	t_stack *new;
@@ -40,9 +40,9 @@ int main(int ac, char **av)
 		i++;
 	}
 	return (0);
-}
+} */
 
-/* int main(int ac, char **av)
+ int main(int ac, char **av)
 {
 	int	i;
 	int	num;
@@ -61,7 +61,7 @@ int main(int ac, char **av)
 		i++;
 	}
 	print_stack(&stack);
-} */
+} 
 
 /* int	main (int ac, char **av)
 {

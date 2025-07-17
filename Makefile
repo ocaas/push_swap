@@ -6,12 +6,12 @@
 #    By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/05 05:44:17 by olopez-s          #+#    #+#              #
-#    Updated: 2025/06/17 06:13:50 by olopez-s         ###   ########.fr        #
+#    Updated: 2025/07/17 00:57:02 by olopez-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME       = pushswap
-CC         = cc
+CC         = gcc
 
 SRC_DIR    = src
 OBJ_DIR    = obj
@@ -22,7 +22,7 @@ LIBFT_DIR  = libft
 LIBFT      = $(LIBFT_DIR)/libft.a
 
 # include paths: your headers + libft’s headers
-CFLAGS     = -Wall -Wextra -Werror -Iincludes -I$(LIBFT_DIR)
+CFLAGS     = -Wall -Wextra -Werror -Iincludes -I$(LIBFT_DIR) -g -Og
 
 # Default target: build libft, then pushswap
 all: $(LIBFT) $(NAME)
