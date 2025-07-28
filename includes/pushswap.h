@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:28:04 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/17 00:19:43 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/07/17 16:59:44 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,11 @@
 
 # define AC_ERROR 1
 
-typedef struct s_stack
+typedef	struct	s_stack
 {
 	int				content;
 	struct s_stack	*next;
 } t_stack;
-
-
 
 //utils
 int		ft_content(char **av);
@@ -37,6 +35,7 @@ t_stack	*ft_newstack(int data);
 char	**ft_split_args(char **av);
 void	ft_free(char **a);
 int	ft_spaces(char *av);
+int	valid_input(char *s);
 
 
 //swap

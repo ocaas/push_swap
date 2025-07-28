@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:27:22 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/17 14:11:54 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/07/29 00:42:04 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,21 @@ int	ft_spaces(char *av)
 	return(1);
 }
 
+int	valid_input(char *s)
+{
+	int	i;
+
+	i = 0;
+	if(!s)
+		return (1);
+	while(s[i])
+	{
+		if(ft_isdigit(s[i]))
+			return (1);
+		s++;
+	}
+	return (0);
+}
 
 /* char	**ft_split_args(char **av)
 {

@@ -6,13 +6,13 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 01:06:06 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/06 20:38:54 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/07/17 16:57:17 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr_fd(char *str, int fd)
+void	ft_putstr_fd(char *str, int fd)
 {
 	int	i;
 

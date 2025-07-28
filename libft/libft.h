@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 02:51:05 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/01 11:33:44 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/07/17 15:51:15 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ char	**ft_split(char const *s, char c);
 int	ft_atoi(const char *str);
 char	*ft_substr(char const *s, int start, int len);
 char	*ft_strdup(const char *s);
+int	ft_isdigit(int c);
 
 
 
