@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:27:22 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/29 00:42:04 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/07/31 02:19:13 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,35 @@ int	valid_input(char *s)
 
 	i = 0;
 	if(!s)
-		return (1);
+		return (0);
+	if(s[i] == '-' || s[i] == '+')
+		i++;
+	if(!s[i])
+		return (0);
 	while(s[i])
 	{
-		if(ft_isdigit(s[i]))
-			return (1);
-		s++;
+		if(!ft_isdigit(s[i]))
+			return (0);
+		i++;
 	}
-	return (0);
+	return (1);
 }
 
+int	doubles(t_stack *stack, char *s)
+{
+	int num;
+
+	num = ft_atoi(s);
+	if (!valid_input(s))
+		return (0);
+	while(stack)
+	{
+		if(stack->content == num)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
 /* char	**ft_split_args(char **av)
 {
 	int		i;

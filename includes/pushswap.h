@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:28:04 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/17 16:59:44 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/07/29 22:34:55 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	**ft_split_args(char **av);
 void	ft_free(char **a);
 int	ft_spaces(char *av);
 int	valid_input(char *s);
+int	doubles(t_stack *stack, char *s);
 
 
 //swap
