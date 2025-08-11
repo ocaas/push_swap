@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:27:22 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/31 02:19:13 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/08/12 00:42:25 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,10 @@ int	valid_input(char *s)
 int	doubles(t_stack *stack, char *s)
 {
 	int num;
+	int overflow;
 
-	num = ft_atoi(s);
+	overflow = 0;
+	num = ft_atoi(s, &overflow);
 	if (!valid_input(s))
 		return (0);
 	while(stack)
@@ -93,6 +95,34 @@ int	doubles(t_stack *stack, char *s)
 	}
 	return (1);
 }
+
+int	final_parse(char **av, t_stack **a)
+{
+	int	i;
+	int	num;
+	int	overflow;
+	char	**arg;
+
+	i = 0;
+	overflow = 0;
+	arg = ft_split_args(av);
+	while(arg[i])
+	{
+		if(doubles(*a, arg[i]))
+		{
+			num = ft_atoi(arg[i], &overflow);
+			ft_add_node_end(a, ft_newstack(num));
+		}
+		else
+		{
+			ft_putstr_fd("Error\n", 2);
+			return(0);
+		}
+		i++;
+	}
+	return (0);
+}
+
 /* char	**ft_split_args(char **av)
 {
 	int		i;

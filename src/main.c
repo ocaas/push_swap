@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:38:29 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/31 02:13:18 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/08/12 01:06:55 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,34 +42,20 @@
 	return (0);
 } */
 
- int main(int ac, char **av)
+int main(int ac, char **av)
 {
-	int	i;
-	int	num;
-	char	**arg;
-	t_stack	*stack;
-	
+	t_stack	*a;
+	int	arg;
+
 	if (ac < 2)
 		return (0);
-	arg = ft_split_args(av);
-	stack = NULL;
-	i = 0;
-	while(arg[i])
-	{
-		if(doubles(stack, arg[i]))
-		{
-			num = ft_atoi(arg[i]);
-			ft_add_node_end(&stack, ft_newstack(num));
-		}
-		else
-		{
-			ft_putstr_fd("input error\n", 1);
-			return (1);
-		}
-		i++;
-	}
-	print_stack(&stack);
-} 
+	a = NULL;
+	arg = final_parse(av, &a);
+	if(arg == 0)
+		return 0;
+	print_stack(&a);
+}
+
 
 /* int	main (int ac, char **av)
 {
