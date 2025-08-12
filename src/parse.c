@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:27:22 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/08/12 00:42:25 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/08/13 00:32:18 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,19 +108,16 @@ int	final_parse(char **av, t_stack **a)
 	arg = ft_split_args(av);
 	while(arg[i])
 	{
-		if(doubles(*a, arg[i]))
-		{
-			num = ft_atoi(arg[i], &overflow);
-			ft_add_node_end(a, ft_newstack(num));
-		}
-		else
+		num = ft_atoi(arg[i], &overflow);
+		if(!doubles(*a, arg[i]) || (overflow))
 		{
 			ft_putstr_fd("Error\n", 2);
 			return(0);
 		}
 		i++;
+		ft_add_node_end(a, ft_newstack(num));
 	}
-	return (0);
+	return (1);
 }
 
 /* char	**ft_split_args(char **av)
