@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:27:22 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/08/13 00:32:18 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/08/13 03:45:44 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,29 @@ int	ft_spaces(char *av)
 	i = 0;
 	if(!av[i])
 		return (1);
-	while(av[i] >= 9 && av[i] <= 13)
+	while(av[i] >= 9 && av[i] <= 13 && av[i])
 	{
-		if(av[i] == ' ' && !(av[i] >= 9 && av[i] <= 13))
-			return(0);
+		if(av[i] != ' ' && !(av[i] >= 9 && av[i] <= 13))
+			return(1);
 		i++;
 	}
-	return(1);
+	return(0);
+}
+
+int	empty_input(char *s)
+{
+	int	i;
+
+	i = 0;
+	if(!s[i] || !s)
+		return (1);
+	while(s[i])
+	{
+		if(s[i] != ' ' && !(s[i] >= 9 && s[i] <= 13))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 int	valid_input(char *s)
@@ -96,24 +112,28 @@ int	doubles(t_stack *stack, char *s)
 	return (1);
 }
 
-int	final_parse(char **av, t_stack **a)
+int	final_parse(char **av, t_stack **a, int ac)
 {
 	int	i;
 	int	num;
 	int	overflow;
 	char	**arg;
 
-	i = 0;
+	i = 1;
 	overflow = 0;
 	arg = ft_split_args(av);
+	while(ac > i)
+	{
+		if(empty_input(av[i]))
+			return (ft_putstr_fd("Error\n", 2), 0);
+		i++;
+	}
+	i = 0;
 	while(arg[i])
 	{
 		num = ft_atoi(arg[i], &overflow);
 		if(!doubles(*a, arg[i]) || (overflow))
-		{
-			ft_putstr_fd("Error\n", 2);
-			return(0);
-		}
+			return(ft_putstr_fd("Error!\n", 2), 0);
 		i++;
 		ft_add_node_end(a, ft_newstack(num));
 	}

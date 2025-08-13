@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:28:04 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/31 07:33:20 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/08/13 03:42:35 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef	struct	s_stack
 //utils
 int		ft_content(char **av);
 void	ft_add_node_end(t_stack **stack, t_stack *new);
+int	empty_input(char *s);
+
 
 //parse
 t_stack	*ft_newstack(int data);
@@ -37,7 +39,7 @@ void	ft_free(char **a);
 int	ft_spaces(char *av);
 int	valid_input(char *s);
 int	doubles(t_stack *stack, char *s);
-int	final_parse(char **av, t_stack **a);
+int	final_parse(char **av, t_stack **a, int ac);
 
 
 //swap

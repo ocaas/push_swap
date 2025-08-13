@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 17:13:53 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/07/17 00:22:56 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/08/13 03:24:09 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,19 @@ void	print_stack(t_stack **stack)
 		temp = temp->next;
 	}
 }
+
+/* int	empty_input(char *s)
+{
+	int	i;
+
+	i = 0;
+	if(!s[i] || !s)
+		return (0);
+	while(s[i])
+	{
+		if(s[i] != ' ' && !(s[i] >= 9 && s[i] <= 13))
+			return (1);
+		i++;
+	}
+	return (0);
+} */
