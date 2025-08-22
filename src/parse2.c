@@ -23,5 +23,4 @@ void	ft_free_s(t_stack **stack)
 		*stack = (*stack)->next;
 		free(temp);
 	}
-	free(stack);
 }

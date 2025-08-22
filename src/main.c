@@ -49,7 +49,7 @@ int	main(int ac, char **av)
 	sort(&a, &b, arg);
 	ft_free_s(&a);
 	ft_free_s(&b);
-	print_stack(&a);
+	//print_stack(&a);
 }
 
 /* int main(int ac, char **av)

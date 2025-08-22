@@ -40,7 +40,7 @@ void	rra(t_stack **a)
 void	rrb(t_stack **b)
 {
 	ft_reverse (b);
-	ft_putstr_fd ("rbb\n", 1);
+	ft_putstr_fd ("rrb\n", 1);
 }
 
 void	rrr(t_stack **a, t_stack **b)
