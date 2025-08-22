@@ -10,52 +10,56 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME       = pushswap
-CC         = gcc
+# **************************************************************************** #
+#                                   Makefile                                   #
+# **************************************************************************** #
 
-SRC_DIR    = src
-OBJ_DIR    = obj
-SRCS       = $(wildcard $(SRC_DIR)/*.c)
-OBJS       = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
+NAME    = push_swap
+CC      = cc
+CFLAGS  = -Wall -Wextra -Werror
+RM      = rm -f
 
-LIBFT_DIR  = libft
-LIBFT      = $(LIBFT_DIR)/libft.a
+# ---------------------------- Sources & Objects ----------------------------- #
 
-# include paths: your headers + libft’s headers
-CFLAGS     = -Wall -Wextra -Werror -Iincludes -I$(LIBFT_DIR) -g -Og
+SRC     = $(wildcard $(SRC_DIR)/*.c)
+OBJ     = $(SRC:.c=.o)
 
-# Default target: build libft, then pushswap
-all: $(LIBFT) $(NAME)
+# ------------------------------- Libft Path -------------------------------- #
 
-# Build libft first
-$(LIBFT):
-	@$(MAKE) -C $(LIBFT_DIR)
+LIBFT_DIR = libft
+LIBFT     = $(LIBFT_DIR)/libft.a
 
-# Link your executable
-$(NAME): $(OBJS)
-	@echo "Linking $(NAME)..."
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+INCLUDE  = push_swap.h
 
-# Compile each source file
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	@echo "Compiling $<..."
+# --------------------------------- Rules ----------------------------------- #
+
+all: $(NAME)
+
+$(NAME): $(OBJ) $(LIBFT)
+	@echo "🔗 Linking objects with libft into $(NAME)..."
+	@$(CC) $(OBJ) $(LIBFT) -o $(NAME)
+	@echo "✅ Build complete!"
+
+%.o: %.c $(INCLUDE)
+	@echo "⚙️  Compiling $<..."
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-# Ensure obj directory exists
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
+$(LIBFT):
+	@echo "📚 Building libft..."
+	@$(MAKE) -C $(LIBFT_DIR)
 
-# Remove only pushswap objects
 clean:
-	@$(MAKE) -C $(LIBFT_DIR) clean
-	@rm -rf $(OBJ_DIR)
+	@echo "🧹 Cleaning object files..."
+	@$(RM) $(OBJ)
+	@$(MAKE) clean -C $(LIBFT_DIR)
 
-# Remove everything, including the binary
 fclean: clean
-	@rm -f $(NAME)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@echo "🗑️  Removing executable and libft..."
+	@$(RM) $(NAME)
+	@$(MAKE) fclean -C $(LIBFT_DIR)
+	@echo "💨 Full clean done!"
 
-# Rebuild from scratch
 re: fclean all
+	@echo "🔄 Rebuilt everything!"
 
 .PHONY: all clean fclean re

@@ -30,18 +30,18 @@ typedef	struct	s_stack
 //utils
 int		ft_content(char **av);
 void	ft_add_node_end(t_stack **stack, t_stack *new);
-int	empty_input(char *s);
+//int		empty_input(char *s);
+void	stack_index(t_stack **stack);
+t_stack	*ft_newstack(int data);
+
 
 
 //parse
-t_stack	*ft_newstack(int data);
 char	**ft_split_args(char **av);
-void	ft_free(char **a);
-int	ft_spaces(char *av);
-int	valid_input(char *s);
-int	doubles(t_stack *stack, char *s);
-int	final_parse(char **av, t_stack **a, int ac);
+int		final_parse(char **av, t_stack **a, int ac);
 
+//parse2
+void	ft_free_s(t_stack **stack);
 
 //swap
 void	sa(t_stack **a);
@@ -70,6 +70,7 @@ void	three_nums(t_stack **stack);
 void	four_nums(t_stack **a, t_stack **b);
 void	five_nums(t_stack **a, t_stack **b);
 int		smallest(t_stack *stack);
+void	six_nums(t_stack **a, t_stack **b);
 
 //algorithm
 void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg);

@@ -54,7 +54,7 @@ int	ft_spaces(char *av)
 	return(0);
 } */
 
-int	empty_input(char *s)
+static int	empty_input(char *s)
 {
 	int	i;
 
@@ -70,7 +70,7 @@ int	empty_input(char *s)
 	return (1);
 }
 
-int	valid_input(char *s)
+static int	valid_input(char *s)
 {
 	int	i;
 
@@ -90,7 +90,7 @@ int	valid_input(char *s)
 	return (1);
 }
 
-int	doubles(t_stack *stack, char *s)
+static int	doubles(t_stack *stack, char *s)
 {
 	int	num;
 	int	overflow;
@@ -129,47 +129,14 @@ int	final_parse(char **av, t_stack **a, int ac)
 	{
 		num = ft_atoi(arg[i], &overflow);
 		if (!doubles(*a, arg[i]) || (overflow))
-			return (ft_putstr_fd("Error!\n", 2), 0);
+			return (ft_putstr_fd("Error\n", 2), 0);
 		i++;
 		ft_add_node_end(a, ft_newstack(num));
 	}
 	return (1);
 }
 
-/* char	**ft_split_args(char **av)
-{
-	int		i;
-	char	**split_args;
-	int		j;
-	int		k;
-	char	**temp;
-
-	k = 0;
-	i = 1;
-	while (av[i])
-	{
-		split_args = malloc(sizeof(char *) * (ft_content(av) + 1));
-		if (!split_args)
-		{
-			ft_free(split_args);
-			return (NULL);
-		}
-		temp = ft_split(av[i], ' ');
-		j = 0;
-		while (temp[j])
-		{
-			split_args[k] = ft_strdup(temp[j]);
-			j++;
-			k++;
-		}
-		ft_free(temp);
-		i++;
-	}
-	split_args[k] = NULL;
-	return (split_args);
-}
-
-void	ft_free(char **a)
+/* void	ft_free(char *a)
 {
 	int	i;
 

@@ -13,3 +13,15 @@
 #include "../includes/pushswap.h"
 #include "../libft/libft.h"
 
+void	ft_free_s(t_stack **stack)
+{
+	t_stack	*temp;
+
+	while(*stack)
+	{
+		temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
+	}
+	free(stack);
+}

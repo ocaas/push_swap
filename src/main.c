@@ -28,7 +28,7 @@ void	sort(t_stack **a, t_stack **b, int n_arg)
 		six_nums(a, b);
 	else
 	{
-		ft_stk_index(a);
+		stack_index(a);
 		ft_sort_groups(a, b, n_arg);
 		ft_sort_back(a, b);
 	}
@@ -41,12 +41,14 @@ int	main(int ac, char **av)
 	int		arg;
 
 	if (ac < 2)
-		return (ft_free(a), 1);
+		return (ft_free_s(&a), 1);
 	a = NULL;
 	arg = final_parse(av, &a, ac);
 	if (arg == 0)
-		return (0);
-	sort(a, b, arg);
+		return (ft_free_s(&a), 1);
+	sort(&a, &b, arg);
+	ft_free_s(&a);
+	ft_free_s(&b);
 	print_stack(&a);
 }
 

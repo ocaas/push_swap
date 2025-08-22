@@ -78,16 +78,29 @@ void	print_stack(t_stack **stack)
 	}
 }
 
-void	ft_free(t_stack *a)
+void	stack_index(t_stack **stack)
 {
-	while(a[i])
+	t_stack	*temp;
+	t_stack	*r;
+	int	index;
+
+	temp = *stack;
+	while(temp)
 	{
-		free(a[i]);
-		i++;
+		r = *stack;
+		index = 0;
+		while(r)
+		{
+			if(temp->content > r->content)
+				index++;
+			r = r->next;
+		}
+		temp->index = index;
+		temp = temp->next;
 	}
-	free(a);
 }
-/* int	empty_input(char *s)
+/*
+int	empty_input(char *s)
 {
 	int	i;
 

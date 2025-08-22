@@ -105,3 +105,30 @@ void	five_nums(t_stack **a, t_stack **b)
 	four_nums(a, b);
 	pa(a, b);
 }
+
+void	six_nums(t_stack **a, t_stack **b)
+{
+	int post;
+
+	post = smallest(*a);
+	if(post >= 1 && post <= 3)
+	{
+		while(post)
+		{
+			ra(a);
+			post--;
+		}
+	}
+	else if (post >= 4 && post <= 5)
+	{
+		while(post < 6)
+		{
+			rra(a);
+			post++;
+		}
+	}
+	pb(a, b);
+	five_nums(a, b);
+	pa(a, b);
+}
+	
