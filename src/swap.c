@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 20:56:41 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/30 15:29:20 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/08/13 04:26:36 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ void	ss(t_stack **a, t_stack **b)
 {
 	ft_swap(a);
 	ft_swap(b);
-	ft_putstr_fd("ss\n", 1); 
+	ft_putstr_fd("ss\n", 1);
 }

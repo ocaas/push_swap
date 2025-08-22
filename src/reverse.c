@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 04:55:15 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/06/25 18:22:11 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/08/13 04:25:31 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	ft_reverse(t_stack **stack)
 {
-	t_stack *prev;
-	t_stack *last;
-	
+	t_stack	*prev;
+	t_stack	*last;
+
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	last = *stack;

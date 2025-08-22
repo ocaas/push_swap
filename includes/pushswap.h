@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:28:04 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/08/13 03:42:35 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/08/21 22:31:37 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef	struct	s_stack
 {
 	int				content;
+	int				index;
 	struct s_stack	*next;
 } t_stack;
 
@@ -63,5 +64,17 @@ void	pb(t_stack **a, t_stack **b);
 
 //delete
 void	print_stack(t_stack **stack);
+
+//exceptions
+void	three_nums(t_stack **stack);
+void	four_nums(t_stack **a, t_stack **b);
+void	five_nums(t_stack **a, t_stack **b);
+int		smallest(t_stack *stack);
+
+//algorithm
+void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg);
+void	ft_sort_back(t_stack **a, t_stack **b);
+
+
 
 #endif

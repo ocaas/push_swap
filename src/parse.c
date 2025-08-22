@@ -6,7 +6,7 @@
 /*   By: olopez-s <olopez-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 06:27:22 by olopez-s          #+#    #+#             */
-/*   Updated: 2025/08/13 03:45:44 by olopez-s         ###   ########.fr       */
+/*   Updated: 2025/08/14 06:12:50 by olopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,16 @@ char	**ft_split_args(char **av)
 	while (av[i])
 	{
 		temp = ft_split(av[i], ' ');
-		while (temp[k])
-		{
-			split_args[j] = ft_strdup(temp[k]);
-			j++;
-			k++;
-		}
 		k = 0;
+		while (temp[k])
+			split_args[j++] = ft_strdup(temp[k++]);
 		free (temp);
 		i++;
 	}
 	split_args[j] = NULL;
 	return (split_args);
 }
-
+/* 
 int	ft_spaces(char *av)
 {
 	int	i;
@@ -56,18 +52,18 @@ int	ft_spaces(char *av)
 		i++;
 	}
 	return(0);
-}
+} */
 
 int	empty_input(char *s)
 {
 	int	i;
 
 	i = 0;
-	if(!s[i] || !s)
+	if (!s[i] || !s)
 		return (1);
-	while(s[i])
+	while (s[i])
 	{
-		if(s[i] != ' ' && !(s[i] >= 9 && s[i] <= 13))
+		if (s[i] != ' ' && !(s[i] >= 9 && s[i] <= 13))
 			return (0);
 		i++;
 	}
@@ -79,15 +75,15 @@ int	valid_input(char *s)
 	int	i;
 
 	i = 0;
-	if(!s)
+	if (!s)
 		return (0);
-	if(s[i] == '-' || s[i] == '+')
+	if (s[i] == '-' || s[i] == '+')
 		i++;
-	if(!s[i])
+	if (!s[i])
 		return (0);
-	while(s[i])
+	while (s[i])
 	{
-		if(!ft_isdigit(s[i]))
+		if (!ft_isdigit(s[i]))
 			return (0);
 		i++;
 	}
@@ -96,16 +92,16 @@ int	valid_input(char *s)
 
 int	doubles(t_stack *stack, char *s)
 {
-	int num;
-	int overflow;
+	int	num;
+	int	overflow;
 
 	overflow = 0;
 	num = ft_atoi(s, &overflow);
 	if (!valid_input(s))
 		return (0);
-	while(stack)
+	while (stack)
 	{
-		if(stack->content == num)
+		if (stack->content == num)
 			return (0);
 		stack = stack->next;
 	}
@@ -114,26 +110,26 @@ int	doubles(t_stack *stack, char *s)
 
 int	final_parse(char **av, t_stack **a, int ac)
 {
-	int	i;
-	int	num;
-	int	overflow;
+	int		i;
+	int		num;
+	int		overflow;
 	char	**arg;
 
 	i = 1;
 	overflow = 0;
 	arg = ft_split_args(av);
-	while(ac > i)
+	while (ac > i)
 	{
-		if(empty_input(av[i]))
+		if (empty_input(av[i]))
 			return (ft_putstr_fd("Error\n", 2), 0);
 		i++;
 	}
 	i = 0;
-	while(arg[i])
+	while (arg[i])
 	{
 		num = ft_atoi(arg[i], &overflow);
-		if(!doubles(*a, arg[i]) || (overflow))
-			return(ft_putstr_fd("Error!\n", 2), 0);
+		if (!doubles(*a, arg[i]) || (overflow))
+			return (ft_putstr_fd("Error!\n", 2), 0);
 		i++;
 		ft_add_node_end(a, ft_newstack(num));
 	}
