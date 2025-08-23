@@ -65,8 +65,8 @@
 #                                   Makefile                                   #
 # **************************************************************************** #
 
-NAME        = pushswap
-CC          = gcc
+NAME        = push_swap
+CC          = cc
 CFLAGS      = -Wall -Wextra -Werror -Iincludes -Ilibft
 RM          = rm -f
 

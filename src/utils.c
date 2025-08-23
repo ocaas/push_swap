@@ -31,8 +31,7 @@ int	ft_content(char **av)
 			c++;
 			t++;
 		}
-		free(temp);
-		t = 0;
+		ft_free_split(temp);
 		i++;
 	}
 	return (c);

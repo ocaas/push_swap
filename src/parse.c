@@ -31,7 +31,7 @@ char	**ft_split_args(char **av)
 		k = 0;
 		while (temp[k])
 			split_args[j++] = ft_strdup(temp[k++]);
-		free (temp);
+		ft_free_split(temp);
 		i++;
 	}
 	split_args[j] = NULL;
@@ -129,10 +129,11 @@ int	final_parse(char **av, t_stack **a, int ac)
 	{
 		num = ft_atoi(arg[i], &overflow);
 		if (!doubles(*a, arg[i]) || (overflow))
-			return (ft_putstr_fd("Error\n", 2), 0);
+			return (ft_putstr_fd("Error\n", 2), ft_free_split(arg), 0);
 		i++;
 		ft_add_node_end(a, ft_newstack(num));
 	}
+	ft_free_split(arg);
 	return (1);
 }
 

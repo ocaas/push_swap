@@ -39,6 +39,7 @@ int	main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 	int		arg;
+	int		p_stack;
 
 	if (ac < 2)
 		return (ft_free_s(&a), 1);
@@ -46,9 +47,13 @@ int	main(int ac, char **av)
 	arg = final_parse(av, &a, ac);
 	if (arg == 0)
 		return (ft_free_s(&a), 1);
+	p_stack = parse_stack(a);
+	if (p_stack == -1)
+		return (ft_free_s(&a), 1);
 	sort(&a, &b, arg);
 	ft_free_s(&a);
 	ft_free_s(&b);
+	return (0);
 	//print_stack(&a);
 }
 

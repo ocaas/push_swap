@@ -39,9 +39,10 @@ t_stack	*ft_newstack(int data);
 //parse
 char	**ft_split_args(char **av);
 int		final_parse(char **av, t_stack **a, int ac);
-
+void	ft_free_split(char **arr);
 //parse2
 void	ft_free_s(t_stack **stack);
+int	parse_stack(t_stack *a);
 
 //swap
 void	sa(t_stack **a);
