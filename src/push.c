@@ -26,12 +26,16 @@ static void	ft_push(t_stack **from, t_stack **to)
 
 void	pa(t_stack **a, t_stack **b)
 {
+	if (!b || !*b)
+		return ;
 	ft_push(b, a);
 	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
+	if (!a || !*a)
+		return ;
 	ft_push(a, b);
 	ft_putstr_fd("pb\n", 1);
 }
