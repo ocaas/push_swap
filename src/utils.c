@@ -41,7 +41,7 @@ t_stack	*ft_newstack(int data)
 {
 	t_stack	*new;
 
-	new = malloc(sizeof(t_stack));
+	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->content = data;
@@ -53,6 +53,8 @@ void	ft_add_node_end(t_stack **stack, t_stack *new)
 {
 	t_stack	*temp;
 
+	if (!stack || !new)
+		return ;
 	if (!(*stack))
 	{
 		*stack = new;

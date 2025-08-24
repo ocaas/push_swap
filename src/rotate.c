@@ -20,7 +20,7 @@ static void	ft_rotate(t_stack **stack)
 	if (!stack || !(*stack) || !(*stack)->next)
 		return ;
 	first = *stack;
-	*stack = (*stack)->next;
+	*stack = first->next;
 	first->next = NULL;
 	last = *stack;
 	while (last->next != NULL)

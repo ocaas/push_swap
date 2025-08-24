@@ -29,7 +29,9 @@ void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg)
 	int	range;
 	int	i;
 
-	range = (ft_sqrt(n_arg) * (133 / 100));
+	range = (ft_sqrt(n_arg) * 133) / 100;
+	if(range < 1)
+		range = 1;
 	i = 0;
 	while (*a)
 	{
