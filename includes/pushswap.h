@@ -34,6 +34,13 @@ void	ft_add_node_end(t_stack **stack, t_stack *new);
 void	stack_index(t_stack **stack);
 t_stack	*ft_newstack(int data);
 
+//utils2
+int	stksize(t_stack *s);
+void	rotate_a_to_top(t_stack **a, int pos);
+void	rotate_b_to_top(t_stack **b, int pos);
+int	index_of_max(t_stack *b);
+
+
 
 
 //parse
@@ -76,6 +83,8 @@ void	six_nums(t_stack **a, t_stack **b);
 //algorithm
 void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg);
 void	ft_sort_back(t_stack **a, t_stack **b);
+int	ft_stksize(t_stack *s);
+
 
 
 

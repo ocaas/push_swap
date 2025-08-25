@@ -25,6 +25,8 @@ int	ft_content(char **av)
 	while (av[i])
 	{
 		temp = ft_split(av[i], ' ');
+		if (!temp)
+			return (c);
 		t = 0;
 		while (temp[t])
 		{
@@ -45,6 +47,7 @@ t_stack	*ft_newstack(int data)
 	if (!new)
 		return (NULL);
 	new->content = data;
+	new->index = 0;
 	new->next = NULL;
 	return (new);
 }
@@ -63,6 +66,7 @@ void	ft_add_node_end(t_stack **stack, t_stack *new)
 	temp = *stack;
 	while (temp->next)
 		temp = temp->next;
+	temp->next = NULL;
 	temp->next = new;
 }
 
@@ -86,7 +90,7 @@ void	stack_index(t_stack **stack)
 	int	index;
 
 	temp = *stack;
-	while(temp)
+	while (temp)
 	{
 		r = *stack;
 		index = 0;

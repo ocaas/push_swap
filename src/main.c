@@ -16,6 +16,8 @@
 //remember to fix libft.a 
 void	sort(t_stack **a, t_stack **b, int n_arg)
 {
+	n_arg = ft_stksize(*a);
+
 	if (n_arg == 2)
 		sa(a);
 	else if (n_arg == 3)
@@ -41,12 +43,13 @@ int	main(int ac, char **av)
 	int		arg;
 	int		p_stack;
 
+	a = NULL;
+	b = NULL;
 	if (ac < 2)
 		return (ft_free_s(&a), 1);
-	a = NULL;
-	arg = final_parse(av, &a, ac);
-	if (arg == 0)
+	if (final_parse(av, &a, ac) == 0)
 		return (ft_free_s(&a), 1);
+	arg = ft_stksize(a);
 	p_stack = parse_stack(a);
 	if (p_stack == -1)
 		return (ft_free_s(&a), 1);
@@ -54,7 +57,6 @@ int	main(int ac, char **av)
 	ft_free_s(&a);
 	ft_free_s(&b);
 	return (0);
-	//print_stack(&a);
 }
 
 /* int main(int ac, char **av)

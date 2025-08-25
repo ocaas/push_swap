@@ -24,13 +24,67 @@ static int	ft_sqrt(int n)
 	return (i);
 }
 
+int	ft_stksize(t_stack *s)
+{
+	int	n;
+
+	n = 0;
+	while (s)
+	{
+		n++;
+		s = s->next;
+	}
+	return (n);
+}
+
+/* static int	tail_in_window(t_stack *a, int lim)
+{
+	while (a && a->next)
+		a = a->next;
+	if (!a)
+		return (0);
+	return (a->index <= lim);
+} */
+static int	nearest_pos(t_stack *a, int lim)
+{
+	int		n;
+	int		i;
+	int		first;
+	int		last;
+	t_stack	*p;
+
+	n = ft_stksize(a);
+	first = -1;
+	last = -1;
+	i = 0;
+	p = a;
+	while (p)
+	{
+		if (p->index <= lim)
+		{
+			if (first < 0)
+				first = i;
+			last = i;
+		}
+		i++;
+		p = p->next;
+	}
+	if (first < 0)
+		return (-1000000);
+	if (first <= n - 1 - last)
+		return (first);
+	return (-(n - last));
+}
+
 void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg)
 {
 	int	range;
 	int	i;
+	int	pos;
+	int	k;
 
 	range = (ft_sqrt(n_arg) * 133) / 100;
-	if(range < 1)
+	if (range < 1)
 		range = 1;
 	i = 0;
 	while (*a)
@@ -47,9 +101,29 @@ void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg)
 			i++;
 		}
 		else
-			ra(a);
+		{
+			pos = nearest_pos(*a, i + range);
+			if (pos == -1000000)
+			{
+				i += range; /* open next chunk when window empty */
+				continue ;
+			}
+			if (pos >= 0)
+			{
+				k = pos;
+				while (k-- > 0)
+					ra(a);
+			}
+			else
+			{
+				k = -pos;
+				while (k-- > 0)
+					rra(a);
+			}
+		}
 	}
 }
+
 
 static int	ft_biggest_index(t_stack *stack)
 {
@@ -71,19 +145,6 @@ static int	ft_biggest_index(t_stack *stack)
 		i++;
 	}
 	return (pos);
-}
-
-static int	ft_stksize(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		stack = stack->next;
-		i++;
-	}
-	return (i);
 }
 
 void	ft_sort_back(t_stack **a, t_stack **b)
@@ -108,3 +169,5 @@ void	ft_sort_back(t_stack **a, t_stack **b)
 		pa(a, b);
 	}
 }
+
+
