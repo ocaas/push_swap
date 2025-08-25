@@ -13,6 +13,7 @@
 #include "../includes/pushswap.h"
 #include "../libft/libft.h"
 
+
 static int	ft_sqrt(int n)
 {
 	int	i;
@@ -20,8 +21,7 @@ static int	ft_sqrt(int n)
 	i = 0;
 	while ((i * i) <= n)
 		i++;
-	i--;
-	return (i);
+	return (i - 1);
 }
 
 int	ft_stksize(t_stack *s)
@@ -37,51 +37,73 @@ int	ft_stksize(t_stack *s)
 	return (n);
 }
 
-/* static int	tail_in_window(t_stack *a, int lim)
+static int	first_pos(t_stack *a, int lim)
 {
-	while (a && a->next)
-		a = a->next;
-	if (!a)
-		return (0);
-	return (a->index <= lim);
-} */
-static int	nearest_pos(t_stack *a, int lim)
-{
-	int		n;
-	int		i;
-	int		first;
-	int		last;
-	t_stack	*p;
+	int	i;
 
-	n = ft_stksize(a);
-	first = -1;
-	last = -1;
 	i = 0;
-	p = a;
-	while (p)
+	while (a)
 	{
-		if (p->index <= lim)
-		{
-			if (first < 0)
-				first = i;
-			last = i;
-		}
+		if (a->index <= lim)
+			return (i);
 		i++;
-		p = p->next;
+		a = a->next;
 	}
-	if (first < 0)
-		return (-1000000);
-	if (first <= n - 1 - last)
-		return (first);
-	return (-(n - last));
+	return (-1);
+}
+
+static int	rra_dist(t_stack *a, int lim)
+{
+	int	seen;
+	int	trail;
+
+	seen = 0;
+	trail = 0;
+	while (a)
+	{
+		if (a->index <= lim)
+		{
+			seen = 1;
+			trail = 0;
+		}
+		else if (seen)
+			trail++;
+		a = a->next;
+	}
+	if (!seen)
+		return (-1);
+	return (trail + 1);
+}
+
+static int	rotate_nearest_a(t_stack **a, int lim)
+{
+	int	f;
+	int	r;
+	int	k;
+
+	f = first_pos(*a, lim);
+	r = rra_dist(*a, lim);
+	if (f < 0 && r < 0)
+		return (0);
+	if (r >= 0 && (f < 0 || r < f))
+	{
+		k = r;
+		while (k-- > 0)
+			rra(a);
+	}
+	else
+	{
+		k = f;
+		while (k-- > 0)
+			ra(a);
+	}
+	return (1);
 }
 
 void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg)
 {
 	int	range;
 	int	i;
-	int	pos;
-	int	k;
 
 	range = (ft_sqrt(n_arg) * 133) / 100;
 	if (range < 1)
@@ -100,48 +122,28 @@ void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg)
 			pb(a, b);
 			i++;
 		}
-		else
-		{
-			pos = nearest_pos(*a, i + range);
-			if (pos == -1000000)
-			{
-				i += range; /* open next chunk when window empty */
-				continue ;
-			}
-			if (pos >= 0)
-			{
-				k = pos;
-				while (k-- > 0)
-					ra(a);
-			}
-			else
-			{
-				k = -pos;
-				while (k-- > 0)
-					rra(a);
-			}
-		}
+		else if (!rotate_nearest_a(a, i + range))
+			i += range;
 	}
 }
 
-
-static int	ft_biggest_index(t_stack *stack)
+static int	ft_biggest_index(t_stack *s)
 {
-	int	biggest;
+	int	big;
 	int	pos;
 	int	i;
 
-	biggest = stack->index;
+	big = s->index;
 	pos = 0;
 	i = 0;
-	while (stack)
+	while (s)
 	{
-		if (stack->index > biggest)
+		if (s->index > big)
 		{
-			biggest = stack->index;
+			big = s->index;
 			pos = i;
 		}
-		stack = stack->next;
+		s = s->next;
 		i++;
 	}
 	return (pos);
@@ -156,18 +158,13 @@ void	ft_sort_back(t_stack **a, t_stack **b)
 	{
 		pos = ft_biggest_index(*b);
 		size = ft_stksize(*b);
-		if (pos <= (size / 2))
-		{
+		if (pos <= size / 2)
 			while (pos-- > 0)
 				rb(b);
-		}
 		else
-		{
 			while (pos++ < size)
 				rrb(b);
-		}
 		pa(a, b);
 	}
 }
-
 

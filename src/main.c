@@ -13,25 +13,23 @@
 #include "../includes/pushswap.h"
 #include "../libft/libft.h"
 
-//remember to fix libft.a 
-void	sort(t_stack **a, t_stack **b, int n_arg)
+static void	sort(t_stack **a, t_stack **b, int n)
 {
-	n_arg = ft_stksize(*a);
-
-	if (n_arg == 2)
+	n = ft_stksize(*a);
+	if (n == 2)
 		sa(a);
-	else if (n_arg == 3)
+	else if (n == 3)
 		three_nums(a);
-	else if (n_arg == 4)
+	else if (n == 4)
 		four_nums(a, b);
-	else if (n_arg == 5)
+	else if (n == 5)
 		five_nums(a, b);
-	else if (n_arg == 6)
+	else if (n == 6)
 		six_nums(a, b);
 	else
 	{
 		stack_index(a);
-		ft_sort_groups(a, b, n_arg);
+		ft_sort_groups(a, b, n);
 		ft_sort_back(a, b);
 	}
 }
@@ -40,7 +38,6 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		arg;
 	int		p_stack;
 
 	a = NULL;
@@ -49,16 +46,14 @@ int	main(int ac, char **av)
 		return (ft_free_s(&a), 1);
 	if (final_parse(av, &a, ac) == 0)
 		return (ft_free_s(&a), 1);
-	arg = ft_stksize(a);
 	p_stack = parse_stack(a);
 	if (p_stack == -1)
 		return (ft_free_s(&a), 1);
-	sort(&a, &b, arg);
+	sort(&a, &b, 0);
 	ft_free_s(&a);
 	ft_free_s(&b);
 	return (0);
 }
-
 /* int main(int ac, char **av)
 {
 	t_stack *a = NULL;

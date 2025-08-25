@@ -13,27 +13,38 @@
 #include "../includes/pushswap.h"
 #include "../libft/libft.h"
 
+
+static int	count_tokens(char **sp)
+{
+	int	t;
+	int	c;
+
+	t = 0;
+	c = 0;
+	while (sp && sp[t])
+	{
+		if (sp[t][0] != '\0')
+			c++;
+		t++;
+	}
+	return (c);
+}
+
 int	ft_content(char **av)
 {
 	int		i;
-	char	**temp;
-	int		t;
 	int		c;
+	char	**sp;
 
 	i = 1;
 	c = 0;
 	while (av[i])
 	{
-		temp = ft_split(av[i], ' ');
-		if (!temp)
+		sp = ft_split(av[i], ' ');
+		if (!sp)
 			return (c);
-		t = 0;
-		while (temp[t])
-		{
-			c++;
-			t++;
-		}
-		ft_free_split(temp);
+		c += count_tokens(sp);
+		ft_free_split(sp);
 		i++;
 	}
 	return (c);
@@ -54,56 +65,61 @@ t_stack	*ft_newstack(int data)
 
 void	ft_add_node_end(t_stack **stack, t_stack *new)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 
 	if (!stack || !new)
 		return ;
-	if (!(*stack))
+	if (!*stack)
 	{
 		*stack = new;
 		return ;
 	}
-	temp = *stack;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = NULL;
-	temp->next = new;
+	tmp = *stack;
+	while (tmp->next)
+		tmp = tmp->next;
+	new->next = NULL;
+	tmp->next = new;
 }
 
 void	print_stack(t_stack **stack)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 
-	temp = *stack;
-	while (temp)
+	tmp = *stack;
+	while (tmp)
 	{
-		ft_putnbr_fd(temp->content, 1);
+		ft_putnbr_fd(tmp->content, 1);
 		ft_putchar_fd('\n', 1);
-		temp = temp->next;
+		tmp = tmp->next;
 	}
+}
+
+static int	rank_of(t_stack *s, int val)
+{
+	int	idx;
+
+	idx = 0;
+	while (s)
+	{
+		if (val > s->content)
+			idx++;
+		s = s->next;
+	}
+	return (idx);
 }
 
 void	stack_index(t_stack **stack)
 {
-	t_stack	*temp;
-	t_stack	*r;
-	int	index;
+	t_stack	*p;
 
-	temp = *stack;
-	while (temp)
+	p = *stack;
+	while (p)
 	{
-		r = *stack;
-		index = 0;
-		while(r)
-		{
-			if(temp->content > r->content)
-				index++;
-			r = r->next;
-		}
-		temp->index = index;
-		temp = temp->next;
+		p->index = rank_of(*stack, p->content);
+		p = p->next;
 	}
 }
+
 /*
 int	empty_input(char *s)
 {
