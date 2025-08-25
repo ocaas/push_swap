@@ -106,6 +106,8 @@ void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg)
 	int	i;
 
 	range = (ft_sqrt(n_arg) * 133) / 100;
+	if (n_arg >= 400)
+		range++;
 	if (range < 1)
 		range = 1;
 	i = 0;
